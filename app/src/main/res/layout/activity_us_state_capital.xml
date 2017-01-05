@@ -23,22 +23,22 @@
     <Button
         android:id="@+id/button_city_one"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/button_city_two"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/button_city_three"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/button_city_four"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     </LinearLayout>
 </LinearLayout>

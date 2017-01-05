@@ -105,7 +105,7 @@ public class StateCapitalCollection {
         currentCorrectAnswer = capital;
     }
 
-    public void fillQuestionBank() {
+    public ArrayList<String> fillQuestionBank() {
         questionBank.add(currentCorrectAnswer);
         List<String> stateValues = new ArrayList<>(states.values());
 
@@ -117,6 +117,7 @@ public class StateCapitalCollection {
             }
         }
         Collections.shuffle(questionBank);
+        return questionBank;
     }
 
     public String getQuestionToString() {
