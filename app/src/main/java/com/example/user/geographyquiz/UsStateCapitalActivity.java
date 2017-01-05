@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -21,7 +22,12 @@ public class UsStateCapitalActivity extends AppCompatActivity {
     private Button buttonCityThree;
     private Button buttonCityFour;
 
-    private void checkAnswer() {
+    private void checkAnswer(String city) {
+        if (city.equals(stateCapitalCollection.getCurrentCorrectAnswer())) {
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -31,10 +37,10 @@ public class UsStateCapitalActivity extends AppCompatActivity {
 
         stateCapitalCollection.getQuestionAndAnswer();
         ArrayList<String> questionBank = stateCapitalCollection.fillQuestionBank();
-        String cityOne = questionBank.get(0);
-        String cityTwo = questionBank.get(1);
-        String cityThree = questionBank.get(2);
-        String cityFour = questionBank.get(3);
+        final String cityOne = questionBank.get(0);
+        final String cityTwo = questionBank.get(1);
+        final String cityThree = questionBank.get(2);
+        final String cityFour = questionBank.get(3);
 
         question = (TextView)findViewById(R.id.question);
         question.setText(stateCapitalCollection.getQuestionToString());
@@ -44,7 +50,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         buttonCityOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkAnswer(cityOne);
             }
         });
 
@@ -53,7 +59,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         buttonCityTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkAnswer(cityTwo);
             }
         });
 
@@ -62,7 +68,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         buttonCityThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkAnswer(cityThree);
             }
         });
 
@@ -71,7 +77,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         buttonCityFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkAnswer(cityFour);
             }
         });
     }
