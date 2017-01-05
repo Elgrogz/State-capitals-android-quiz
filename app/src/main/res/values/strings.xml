@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GeographyQuiz</string>
+    <string name="ask_question_capital">What is the capital of </string>
 </resources>

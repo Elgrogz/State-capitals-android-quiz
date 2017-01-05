@@ -105,10 +105,9 @@ public class StateCapitalCollection {
         currentCorrectAnswer = capital;
     }
 
-    public ArrayList<String> fillQuestionBank() {
+    public void fillQuestionBank() {
         questionBank.add(currentCorrectAnswer);
         List<String> stateValues = new ArrayList<>(states.values());
-
 
         while(questionBank.size() < 4) {
             int randomIndex = new Random().nextInt(stateValues.size());
@@ -117,10 +116,11 @@ public class StateCapitalCollection {
                 questionBank.add(randomCity);
             }
         }
-
         Collections.shuffle(questionBank);
+    }
 
-        return questionBank;
+    public String getQuestionToString() {
+        return "What is the capital of " + getCurrentQuestion() + "?";
     }
 
 
