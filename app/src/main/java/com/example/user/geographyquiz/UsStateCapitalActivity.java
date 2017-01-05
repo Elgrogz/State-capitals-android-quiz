@@ -14,13 +14,28 @@ import java.util.ArrayList;
 public class UsStateCapitalActivity extends AppCompatActivity {
 
     private StateCapitalCollection stateCapitalCollection = new StateCapitalCollection();
-    private int currentIndex = 0;
 
     private TextView question;
+    private String cityOne;
+    private String cityTwo;
+    private String cityThree;
+    private String cityFour;
     private Button buttonCityOne;
     private Button buttonCityTwo;
     private Button buttonCityThree;
     private Button buttonCityFour;
+    private Button nextButton;
+
+    public void updateQuestion() {
+        stateCapitalCollection.getQuestionAndAnswer();
+
+        ArrayList<String> questionBank = stateCapitalCollection.fillQuestionBank();
+        cityOne = questionBank.get(0);
+        cityTwo = questionBank.get(1);
+        cityThree = questionBank.get(2);
+        cityFour = questionBank.get(3);
+
+    }
 
     private void checkAnswer(String city) {
         if (city.equals(stateCapitalCollection.getCurrentCorrectAnswer())) {
@@ -35,12 +50,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_us_state_capital);
 
-        stateCapitalCollection.getQuestionAndAnswer();
-        ArrayList<String> questionBank = stateCapitalCollection.fillQuestionBank();
-        final String cityOne = questionBank.get(0);
-        final String cityTwo = questionBank.get(1);
-        final String cityThree = questionBank.get(2);
-        final String cityFour = questionBank.get(3);
+        updateQuestion();
 
         question = (TextView)findViewById(R.id.question);
         question.setText(stateCapitalCollection.getQuestionToString());
@@ -78,6 +88,14 @@ public class UsStateCapitalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(cityFour);
+            }
+        });
+
+        nextButton = (Button)findViewById(R.id.next_button);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestion();
             }
         });
     }
