@@ -96,6 +96,11 @@ public class UsStateCapitalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateQuestion();
+                question.setText(stateCapitalCollection.getQuestionToString());
+                buttonCityOne.setText(cityOne);
+                buttonCityTwo.setText(cityTwo);
+                buttonCityThree.setText(cityThree);
+                buttonCityFour.setText(cityFour);
             }
         });
     }
