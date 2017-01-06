@@ -13,10 +13,11 @@
         android:textSize="20dp"
         android:paddingBottom="30dp" />
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
     <Button
         android:id="@+id/button_city_one"
         android:layout_width="wrap_content"
@@ -26,7 +27,12 @@
         android:id="@+id/button_city_two"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
     <Button
         android:id="@+id/button_city_three"
         android:layout_width="wrap_content"
@@ -37,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
 
-    </GridLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/next_button"
@@ -45,4 +51,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center" />
+
+    <TextView
+        android:id="@+id/score_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom" />
 </LinearLayout>

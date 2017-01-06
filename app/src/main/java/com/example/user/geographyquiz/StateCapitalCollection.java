@@ -106,6 +106,7 @@ public class StateCapitalCollection {
     }
 
     public ArrayList<String> fillQuestionBank() {
+        questionBank.clear();
         questionBank.add(currentCorrectAnswer);
         List<String> stateValues = new ArrayList<>(states.values());
 

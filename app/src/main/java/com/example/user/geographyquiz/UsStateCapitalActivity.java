@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class UsStateCapitalActivity extends AppCompatActivity {
@@ -25,8 +23,15 @@ public class UsStateCapitalActivity extends AppCompatActivity {
     private Button buttonCityThree;
     private Button buttonCityFour;
     private Button nextButton;
+    private TextView scoreCard;
 
-    public void updateQuestion() {
+    private int score = 0;
+
+    private int getScore() {
+        return score;
+    }
+
+    private void updateQuestion() {
         stateCapitalCollection.getQuestionAndAnswer();
 
         ArrayList<String> questionBank = stateCapitalCollection.fillQuestionBank();
@@ -34,11 +39,11 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         cityTwo = questionBank.get(1);
         cityThree = questionBank.get(2);
         cityFour = questionBank.get(3);
-
     }
 
     private void checkAnswer(String city) {
         if (city.equals(stateCapitalCollection.getCurrentCorrectAnswer())) {
+            score += 1;
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
@@ -103,5 +108,8 @@ public class UsStateCapitalActivity extends AppCompatActivity {
                 buttonCityFour.setText(cityFour);
             }
         });
+
+        scoreCard = (TextView)findViewById(R.id.score_card);
+        scoreCard.setText(R.string.scorecard);
     }
 }

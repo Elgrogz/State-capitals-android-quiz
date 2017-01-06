@@ -4,4 +4,6 @@
     <string name="correct">Correct!</string>
     <string name="incorrect">Incorrect!</string>
     <string name="next">Next</string>
+    <string name="scorecard">Score: </string>
+    <string name="state_capitals">US State Capitals</string>
 </resources>
