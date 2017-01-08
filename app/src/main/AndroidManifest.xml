@@ -20,6 +20,11 @@
             android:name=".UsStateCapitalActivity"
             android:parentActivityName=".MenuActivity">
         </activity>
+
+        <activity
+            android:name=".WorldCapitalsActivity"
+            android:parentActivityName=".MenuActivity">
+        </activity>
     </application>
 
 </manifest>

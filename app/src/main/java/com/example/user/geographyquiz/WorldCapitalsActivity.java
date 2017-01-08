@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class UsStateCapitalActivity extends AppCompatActivity {
+public class WorldCapitalsActivity extends AppCompatActivity {
 
-    private StateCapitalCollection stateCapitalCollection = new StateCapitalCollection();
+    private CapitalCityCollection capitalCityCollection = new CapitalCityCollection();
 
     private TextView question;
     private String cityOne;
@@ -32,9 +32,9 @@ public class UsStateCapitalActivity extends AppCompatActivity {
     }
 
     private void updateQuestion() {
-        stateCapitalCollection.getQuestionAndAnswer();
+        capitalCityCollection.getQuestionAndAnswer();
 
-        ArrayList<String> questionBank = stateCapitalCollection.fillQuestionBank();
+        ArrayList<String> questionBank = capitalCityCollection.fillQuestionBank();
         cityOne = questionBank.get(0);
         cityTwo = questionBank.get(1);
         cityThree = questionBank.get(2);
@@ -42,7 +42,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(String city) {
-        if (city.equals(stateCapitalCollection.getCurrentCorrectAnswer())) {
+        if (city.equals(capitalCityCollection.getCurrentCorrectAnswer())) {
             score += 1;
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
@@ -58,7 +58,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
         updateQuestion();
 
         question = (TextView)findViewById(R.id.question);
-        question.setText(stateCapitalCollection.getQuestionToString());
+        question.setText(capitalCityCollection.getQuestionToString());
 
         buttonCityOne = (Button)findViewById(R.id.button_city_one);
         buttonCityOne.setText(cityOne);
@@ -101,7 +101,7 @@ public class UsStateCapitalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateQuestion();
-                question.setText(stateCapitalCollection.getQuestionToString());
+                question.setText(capitalCityCollection.getQuestionToString());
                 buttonCityOne.setText(cityOne);
                 buttonCityTwo.setText(cityTwo);
                 buttonCityThree.setText(cityThree);
